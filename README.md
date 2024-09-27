@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+           Admin Panel for User Management and Registration Analytics
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is an Admin Panel built with React.js for managing users and visualizing user registration analytics. It includes features like CRUD (Create, Read, Update, Delete) operations on users and displays metrics related to user registrations over different time frames. The backend is simulated using JSON Server.
 
-In the project directory, you can run:
 
-### `npm start`
+User Management:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Display a list of all users with key information (name, email, role).
+Search and sort users by name, email, or role.
+Perform CRUD operations:
+Create: Add new users.
+Update: Edit existing user details.
+Delete: Remove users from the list
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Analytics Dashboard:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Display key user registration metrics:
+Number of users registered in the last 24 hours.
+Number of users registered in the last 7 days.
+Number of users registered in the last 30 days.
+Visual representation of registration trends using Chart.js.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Responsive Design:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Works on desktops, tablets, and mobile devices.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Tech Stack
+Frontend: React.js.  
+Backend: JSON Server,  start json server:  npx json-server --watch db.json --port 5000
+Charting: Chart.js with react-chartjs-2.  npm install  Chart.js  react-chartjs-2
+HTTP Client: Axios.  npm install axios
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app will be running at http://localhost:3000.  json server sets at --port 5000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User Management
+View a list of users in the admin panel.
+Use the search bar to filter users by name or email.
+Add a new user by clicking the "Add User" button and filling in the form. use the "Edit" and "Delete" buttons for respective operations.
+Analytics Dashboard
+View the number of users registered in the last 24 hours, 7 days, and 30 days.
+Check the registration trends on a line chart, which is dynamically updated based on user data.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+├── public
+│   ├── index.html
+├── src
+│   ├── components
+│   │   ├── UserList.js         # Displays the list of users
+│   │   ├── UserForm.js         # Form for creating/updating users
+│   │   ├── UserDetail.js     
+│   │   ├── Dashboard.js        # User registration analytics
+│   ├── App.js                  # Main App component
+│   ├── index.js                # React entry point
+├── db.json                     # JSON Server database
+├── package.json                
+└── README.md
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Dependencies
+React: Frontend framework.
+Axios: For making HTTP requests.
+react-chartjs-2: For charting and data visualization.
+JSON Server: Simulated backend API.
+react-route-dom : for single page routings
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `GET http://localhost:5000 /users` – Fetch all users
+- `POST http://localhost:5000/users` – Add a new user
+- `PUT http://localhost:5000 /users/:id` – Update an existing user
+- `DELETE http://localhost:5000/users/:id` – Delete a user
